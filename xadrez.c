@@ -1,8 +1,25 @@
 #include <stdio.h>
 
-// Desafio de Xadrez - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
-// O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
+void torre1loop(int n){
+    if(n > 0){
+        printf("Torre se moveu para direita!.\n");
+        torre1loop(n - 1);
+    }
+}
+
+void rainha1loop(int n){
+    if(n > 0){
+        printf("Rainha se moveu para esquerda!.\n");
+        rainha1loop(n - 1);
+    }
+}
+
+void bispo1loop(int n){
+    if(n > 0){
+        printf("Bispo se moveu para Direita!.\n");
+        rainha1loop(n - 1);
+    }
+}
 
 int main() {
     // Nível Novato - Movimentação das Peças
@@ -10,7 +27,7 @@ int main() {
 
     int torre;
     int bispo = 0;
-    int rainha = 0;
+    int rainha;
 
     // Implementação de Movimentação do Bispo
     // Sugestão: Utilize uma estrutura de repetição para simular a movimentação do Bispo em diagonal.
@@ -23,25 +40,30 @@ int main() {
 
     // Implementação de Movimentação da Torre
 
-    for(torre = 0; torre <= 4; torre++){
-        printf("Torre se movimentou para direita!.\n");
-    }
+    torre = 5;
+    torre1loop(torre);
 
     // Implementação de Movimentação da Rainha
     
-    do
-    {
-        printf("Rainha se moveu para esquerda!.\n");
-        rainha++;
-    } while (rainha <= 7);
+    rainha = 8;
+    rainha1loop(rainha);
 
      // Implementação de Movimentação do Bispo
 
-    while (bispo <= 4)
+    for (bispo = 0; bispo < 2; bispo++)
     {
-        printf("Bispo se moveu cinco casas para Cima, Direita!.\n");
-        bispo++;
+        for (int i = 0; i < 1; i++)
+        {
+            printf("Bispo se moveu para Direita!.\n");
+            if (bispo == 1) continue;
+        }
+        
+        if (bispo == 2) break;
+        printf("Bispo se moveu para Cima!.\n");
     }
+    
+    bispo = 1;
+    bispo1loop(bispo);
 
     // Nível Aventureiro - Movimentação do Cavalo
     // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
@@ -49,9 +71,9 @@ int main() {
 
     int cavalo = 1;
 
-    while (cavalo < 2)
+    while (cavalo < 2 && cavalo < 3)
     {
-        for (int i = 0; i <= 1; i++)
+        for (int i = 0, j = 1; i <= j; i++)
         {
             printf("Cavalo se moveu para cima!.\n");
         }
